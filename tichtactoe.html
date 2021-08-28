@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tich Tac Toe</title>
+</head>
+<body>
+<form>
+    <p>Tich Tac Toe</p>
+    <p id="tichtactoe"></p>
+    <button type="button" onclick="tichtac()">Đánh dấu</button>
+</form>
+<script>
+    let a = document.getElementById("tichtactoe")
+    let board = [ ];
+
+    let data = "";
+    for (let i = 0; i < 5; i++) {
+        board[i] = [" . ", " . ", " . ", " . ", " . "]
+    }
+    for (let i = 0; i < 5; i++) {
+        data += "<br>"
+        for (let j = 0; j < 5; j++) {
+            data += board[i][j] + "&nbsp;&nbsp;"
+        }
+    }
+    data += "<br><br><button type='button' onclick='tichtac()'>Đánh dấu</button>"
+    a.innerHTML = data
+    function tichtac() {
+        let posX = prompt("X: ")
+        let posY = prompt("Y: ")
+        data = "";
+        board[posX][posY] = "x"
+        for (let i = 0; i < 5; i++) {
+            data += "<br>"
+            for (let j = 0; j < 5; j++) {
+                data += board[posX][posY] + "&nbsp;&nbsp;&nbsp;&nbsp;"
+            }
+        }
+        data += "<br><br><button type='button' onclick='tichtac()'>Đánh dấu</button>"
+        a.innerHTML = "<hr>" + data
+    }
+</script>
+</body>
+</html>
